@@ -7,8 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
 import com.csc445.frontend.Actors.ColorPalletColor;
 import com.csc445.frontend.Actors.Pixel;
 import com.badlogic.gdx.math.Vector2;
@@ -19,7 +17,6 @@ import com.csc445.frontend.Utils.State;
 import com.csc445.shared.packets.JoinPacket;
 import com.csc445.shared.utils.Constants;
 
-import java.net.UnknownHostException;
 
 public class GameStage extends Stage {
 
@@ -32,12 +29,6 @@ public class GameStage extends Stage {
     private final int textHeight = 500;
 
     private final int textWidth = 225;
-
-    private String name;
-
-    private String address;
-
-    private String pass;
 
     private final Skin whiteSkin = new Skin(Gdx.files.internal("skins/whitefont/uiskin.json"));
     private final Skin altSkin = new Skin(Gdx.files.internal("skins/altfont/uiskin.json"));
@@ -85,8 +76,6 @@ public class GameStage extends Stage {
         Table container = new Table();
         this.addActor(container);
         container.setColor(Color.BLUE);
-        int textHeight = 500;
-        int textWidth = 225;
         container.setSize(textWidth, textHeight);
         container.setPosition(xPos, yPos);
         container.row().width(textWidth);
@@ -113,7 +102,7 @@ public class GameStage extends Stage {
         int buttonPassWidth = 200;
         int buttonPassHeight = 30;
         int positionX = 525;
-        int positionY = 100;
+        int positionY = 75;
 
         nameTextField.setPosition(positionX, positionY + buttonPassHeight + 5);
         nameTextField.setSize(buttonPassWidth, buttonPassHeight);
@@ -135,7 +124,7 @@ public class GameStage extends Stage {
                 State.setSecretKey(passwordTextField.getText());
                 State.setServerName(serverTextField.getText());
 
-                System.out.println("Server Address: " + address + "\nName: " + name + "\nPassword: " + pass);
+//                System.out.println("Server Address: " + address + "\nName: " + name + "\nPassword: " + pass);
 
                 nameTextField.invalidate();
                 passwordTextField.invalidate();
